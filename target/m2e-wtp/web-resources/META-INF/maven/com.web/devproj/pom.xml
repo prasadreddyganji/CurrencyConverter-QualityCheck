@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.web</groupId>
+  <artifactId>devproj</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>devproj</name>
+  <url>http://maven.apache.org</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.4</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.13.2</version>
+	    <scope>test</scope>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-firefox-driver</artifactId>
+	    <version>4.0.0-beta-4</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+	<dependency>
+	    <groupId>org.mockito</groupId>
+	    <artifactId>mockito-all</artifactId>
+	    <version>2.0.2-beta</version>
+	    <scope>test</scope>
+	</dependency>
+		
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.tomcat.plugins</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <url>http://localhost:5050/manager/text</url>
+          <server>myserver</server>
+          <path>/dev_test</path>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-compiler-plugin</artifactId>
+	    <configuration>
+		<source>1.6</source>
+		<target>1.6</target>
+	    </configuration>
+	</plugin>
+
+	<plugin>
+	    <groupId>org.jacoco</groupId>
+	    <artifactId>jacoco-maven-plugin</artifactId>
+	    <version>0.8.4</version>
+	    <configuration>
+	    	<excludes>
+	    		<exclude>ap/sb/service/domain/**/*</exclude>
+	    	</excludes>
+	    </configuration>
+	    <executions>
+		<execution>
+		    <goals>
+		        <goal>prepare-agent</goal>
+		    </goals>
+		</execution>
+		<execution>
+		    <id>report</id>
+		    <phase>verify</phase>
+		    <goals>
+		        <goal>report</goal>
+		    </goals>
+		</execution>
+	    </executions>
+	</plugin>
+      
+    </plugins>
+  </build>
+</project>
