@@ -16,7 +16,7 @@
 <div class="card" style="margin: 0 auto;">
   
   <div class="card-body">
-    <h4 class="card-title" style="text-align:center;padding:20px;font-size:40px;color:#000;">Total Amount: </h4>
+    <h4 class="card-title" style="text-align:center;padding:20px;font-size:40px;color:#000;">Hola! Total Amount: </h4>
     <p class="card-text" style="text-align:center;padding:10px;font-size:20px;color:#000;"><%=request.getAttribute("result")%></p>
     
     
